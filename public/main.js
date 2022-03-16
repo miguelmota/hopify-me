@@ -5,6 +5,8 @@ const strokeWidth = 50
 const circleColor = '#ff89e1'
 const downloadFilename = 'hoptimistic.png'
 
+loadFromUrl('./images/default.png')
+
 upload.addEventListener('change', function (event) {
   const file = event.target.files[0]
   const reader = new FileReader()
