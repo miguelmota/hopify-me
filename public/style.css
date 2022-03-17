@@ -16,6 +16,13 @@ h1 {
   font-size: 3rem;
   font-weight: bold;
 }
+.logoContainer {
+  margin: 3rem 0 1rem 0;
+  text-align: center;
+}
+.logo {
+  width: 80px;
+}
 .container {
   text-align: center;
 }
@@ -23,6 +30,19 @@ h1 {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
+}
+button {
+  background: rgba(0, 0, 0, 0) linear-gradient(99.85deg, rgb(179, 46, 255) -18.29%, rgb(242, 164, 152) 109.86%) repeat scroll 0% 0%;
+  border-style: none;
+  text-decoration: none;
+  color: white;
+  padding: 0.8rem 4.2rem;
+  font-size: 1rem;
+  box-shadow: rgb(255, 255, 255) 10px -10px 30px, rgba(216, 213, 220, 0.8) -10px 10px 30px;
+  transition: background-color 0.15s ease-out 0s, box-shadow 0.15s ease-out 0s;
+  border-radius: 3rem;
+  text-transform: none;
+  cursor: pointer;
 }
 canvas {
 

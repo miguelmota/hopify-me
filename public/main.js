@@ -2,8 +2,8 @@ const canvas = new fabric.Canvas('canvas')
 const upload = document.getElementById('upload')
 const download = document.getElementById('download')
 const strokeWidth = 34
-const circleColor = '#ff89e1'
-const downloadFilename = 'hoptimistic.png'
+const circleColor = '#d976bf'
+const downloadFilename = 'hopified.png'
 
 loadFromUrl('./images/blank.png', false)
 
@@ -62,8 +62,8 @@ function renderImage (img, confetti) {
 
   group.clipPath = clipPath
   canvas.add(group).add(circle).renderAll().setActiveObject(img)
-  download.style.display = 'inline-block'
   if (confetti) {
+    download.style.display = 'inline-block'
     showConfetti()
   }
 }
