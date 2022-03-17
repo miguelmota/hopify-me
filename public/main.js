@@ -1,7 +1,7 @@
 const canvas = new fabric.Canvas('canvas')
 const upload = document.getElementById('upload')
 const download = document.getElementById('download')
-const strokeWidth = 48
+const strokeWidth = 34
 const circleColor = '#ff89e1'
 const downloadFilename = 'hoptimistic.png'
 
