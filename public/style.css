@@ -12,6 +12,10 @@ body {
   transition: background 0.15s ease-out 0s;
   min-height: 100vh;
 }
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
 .container {
   text-align: center;
 }

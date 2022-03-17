@@ -33,7 +33,7 @@ function loadFromUrl (url) {
 function renderImage (img) {
   img.set({
     top: 0,
-    left: 0,
+    left: 0
   })
   img.scaleToWidth(canvas.width)
   img.scaleToHeight(canvas.height)
@@ -50,8 +50,10 @@ function renderImage (img) {
     ry: canvas.height / 2
   })
 
+  circle.set('selectable', false)
+
   const group = new fabric.Group([
-    img,
+    img
   ], { left: 0, top: 0, width: canvas.width, height: canvas.height })
 
   const clipPath = new fabric.Group([
