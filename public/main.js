@@ -1,7 +1,7 @@
 const canvas = new fabric.Canvas('canvas')
 const upload = document.getElementById('upload')
 const download = document.getElementById('download')
-const strokeWidth = 50
+const strokeWidth = 48
 const circleColor = '#ff89e1'
 const downloadFilename = 'hoptimistic.png'
 
@@ -33,15 +33,12 @@ function loadFromUrl (url) {
 function renderImage (img) {
   img.set({
     top: 0,
-    left: 0
+    left: 0,
   })
   img.scaleToWidth(canvas.width)
   img.scaleToHeight(canvas.height)
-  const clipPath = new fabric.Group([
-    new fabric.Circle({ top: 0, left: 0, radius: canvas.width / 2 })
-  ], { left: -(canvas.width / 2), top: -(canvas.height / 2) })
 
-  const rect = new fabric.Rect({
+  const circle = new fabric.Rect({
     top: 0,
     left: 0,
     width: canvas.width - strokeWidth,
@@ -55,10 +52,14 @@ function renderImage (img) {
 
   const group = new fabric.Group([
     img,
-    rect
-  ], { left: 0, top: 0 })
+  ], { left: 0, top: 0, width: canvas.width, height: canvas.height })
+
+  const clipPath = new fabric.Group([
+    new fabric.Circle({ top: 0, left: 0, radius: (canvas.width / 2) - 1 })
+  ], { left: -(canvas.width / 2), top: -(canvas.height / 2) })
+
   group.clipPath = clipPath
-  canvas.add(group).renderAll().setActiveObject(img)
+  canvas.add(group).add(circle).renderAll().setActiveObject(img)
   download.style.display = 'inline-block'
 }
 
