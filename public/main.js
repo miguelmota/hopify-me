@@ -5,14 +5,14 @@ const strokeWidth = 34
 const circleColor = '#ff89e1'
 const downloadFilename = 'hoptimistic.png'
 
-loadFromUrl('./images/default.png')
+loadFromUrl('./images/blank.png', false)
 
 upload.addEventListener('change', function (event) {
   const file = event.target.files[0]
   const reader = new FileReader()
   reader.onload = function (file) {
     const data = file.target.result
-    loadFromUrl(data)
+    loadFromUrl(data, true)
     upload.value = ''
   }
   reader.readAsDataURL(file)
@@ -23,14 +23,14 @@ download.addEventListener('click', (event) => {
   downloadImage()
 })
 
-function loadFromUrl (url) {
+function loadFromUrl (url, confetti) {
   canvas.clear()
   fabric.Image.fromURL(url, (img) => {
-    renderImage(img)
+    renderImage(img, confetti)
   })
 }
 
-function renderImage (img) {
+function renderImage (img, confetti) {
   img.set({
     top: 0,
     left: 0
@@ -63,6 +63,9 @@ function renderImage (img) {
   group.clipPath = clipPath
   canvas.add(group).add(circle).renderAll().setActiveObject(img)
   download.style.display = 'inline-block'
+  if (confetti) {
+    showConfetti()
+  }
 }
 
 function downloadImage () {
@@ -79,4 +82,19 @@ function downloadImage () {
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
+}
+
+function showConfetti() {
+  const jsConfetti = new JSConfetti()
+  jsConfetti.addConfetti({
+    emojis: [
+      '🐰',
+      '🐇',
+      '🌈',
+      //'💕',
+      //'🌸',
+      '🪷',
+      //'🤘',
+    ]
+  })
 }
