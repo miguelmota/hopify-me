@@ -24,6 +24,7 @@ download.addEventListener('click', (event) => {
 })
 
 function loadFromUrl (url) {
+  canvas.clear()
   fabric.Image.fromURL(url, (img) => {
     renderImage(img)
   })
